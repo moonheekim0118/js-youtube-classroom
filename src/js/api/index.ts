@@ -1,4 +1,4 @@
-import { APIResult } from "@/types";
+import { IAPIResult } from "@/types";
 import { MAX_DATA_NUMBER, SERVER_ERROR_MESSAGE, TIMOUT_LIMIT } from "@/constants/index";
 import parseAPIData from "@/utils/parseAPIData";
 
@@ -8,7 +8,7 @@ const signal = controller.signal;
 const getAPI = async (
   keyword: string,
   lastKey: string
-): Promise<APIResult | void> => {
+): Promise<IAPIResult | void> => {
   try {
     const timer = setTimeout(() => controller.abort(), TIMOUT_LIMIT)
     const url = `${process.env.API_URL}?part=snippet&maxResults=${MAX_DATA_NUMBER}&

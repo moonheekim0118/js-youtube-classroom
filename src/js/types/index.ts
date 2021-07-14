@@ -1,29 +1,29 @@
 
-export interface Snippet {
+export interface ISnippet {
     publishedAt: string;
     title: string;
     channelTitle: string;
     channelId: string;
 }
 
-export interface RawItem {
+export interface IRawItem {
     id: { videoId: string };
-    snippet: Snippet;
+    snippet: ISnippet;
 }
 
-export interface Item {
+export interface IItem {
     id: string;
-    snippet: Snippet;
+    snippet: ISnippet;
 }
 
-export interface ItemDB {
-    data: Item;
+export interface IItemDB {
+    data: IItem;
     liked: boolean;
     watched: boolean;
 }
   
-export interface APIResult {
-    datas: Item[];
+export interface IAPIResult {
+    datas: IItem[];
     lastKey: string;
     size: number;
 }
