@@ -1,10 +1,12 @@
 {
   "name": "js-youtube-classroom",
   "version": "1.0.0",
-  "description": "<p align=\"middle\" >\r   <img width=\"200px;\" src=\"./src/images/readme/laptop_with_youtube_logo.png\"/>\r </p>\r <h2 align=\"middle\">level1 - 나만의 유튜브 강의실</h2>\r <p align=\"middle\">자바스크립트와 외부 API를 이용해 구현 하는 나만의 유튜브 강의실</p>\r <p align=\"middle\">\r   <img src=\"https://img.shields.io/badge/version-1.0.0-blue?style=flat-square\" alt=\"template version\"/>\r   <img src=\"https://img.shields.io/badge/language-html-red.svg?style=flat-square\"/>\r   <img src=\"https://img.shields.io/badge/language-css-blue.svg?style=flat-square\"/>\r   <img src=\"https://img.shields.io/badge/language-js-yellow.svg?style=flat-square\"/>\r   <img src=\"https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square\"/>\r </p>",
+  "description": "유튜브 강의실",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "pre-commit": "lint-staged",
+    "dev":"webpack serve --open --mode=development",
+    "build":"webpack --mode=production"
   },
   "repository": {
     "type": "git",
@@ -35,5 +37,10 @@
     "webpack": "^5.44.0",
     "webpack-cli": "^4.7.2",
     "webpack-dev-server": "^3.11.2"
+  },
+  "lint-staged": {
+    "src/**/*.{js,ts,json,css}": [
+      "prettier --write"
+    ]
   }
 }

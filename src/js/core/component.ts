@@ -16,7 +16,6 @@ class Component<IProps = unknown, IState = unknown> {
   }
 
   protected useSelector(): void {}
-  protected usePathName(): void {}
   protected bindEvents(): void {}
   protected initDom(): void {}
   protected initChildren(): void {}
