@@ -1,18 +1,13 @@
 const path = require("path");
+const Dotenv = require("dotenv-webpack");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: "./src/js/index.ts",
-  devServer: {
-    contentBase: path.join(__dirname, "public"),
-    compress: true,
-    open: true,
-    port: 3000,
-  },
   devtool: "inline-source-map",
   output: {
     path: path.resolve(__dirname, "public"),
-    filename: "bundle.js",
+    filename: "index.js",
   },
   module: {
     rules: [
@@ -42,11 +37,12 @@ module.exports = {
     alias: {
       "@": path.join(__dirname, "src/js"),
     },
-    modules: [path.join(__dirname, "src"), "node_modules"],
-    extensions: [".js", ".ts", ".json", ".css"],
+    modules: [path.join(__dirname, "src/js"), "node_modules"],
+    extensions: [".js", ".ts", ".json"],
   },
   target: "node",
   plugins: [
+    new Dotenv({ systemvars: true, silent: true, defaults: false }),
     new HtmlWebPackPlugin({
       template: path.join(__dirname, "public/index.html"),
       inject: false,
